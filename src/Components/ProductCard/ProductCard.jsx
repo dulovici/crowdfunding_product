@@ -1,20 +1,29 @@
 import React from 'react';
 import './productCard.scss';
 
-function ProductCard() {
+function ProductCard(props) {
+    const {data, setActiveCard, setMainModalIsUp} = props;
+
+    
     return (
         <div className="Product-Card">
             <div className="card-head">
-                <h3>Bamboo Stand</h3>
-                <p>Pledge $25 or more</p>
+                <h3>{data.name}</h3>
+                <p>{`Pledge $${data.minPlage} or more`}</p>
             </div>
-            <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.</p>
+            <p>{data.text}.</p>
             <div className="card-bot">
                 <div className="left">
-                    <h3>101</h3>
+                    <h3>{data.peopleLeft}</h3>
                     <p>left</p>
                 </div>
-                <div className='select-r'>Select reward</div>
+                <div 
+                className='select-r'
+                onClick={()=> {
+                setActiveCard(data)
+                setMainModalIsUp(true)
+                }}
+                >Select reward</div>
             </div>
         </div>
     )
