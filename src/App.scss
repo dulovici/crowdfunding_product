@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.App {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: 'Commissioner', sans-serif;
+    background-color: whitesmoke;
+
+    main {
+        max-width: 730px;
+        margin: 0 auto;
+        margin-top: -50px;
+        border-radius: 8px;
+        
+
+        .bookmark-wr {
+            padding: 0 48px 48px 48px;
+            border: 1px solid rgb(218, 218, 218);
+            border-radius: 8px;
+            margin-bottom: 24px;
+            background-color: white;
+
+            .img-wr {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+                margin-top: -30px;
+                
+            }
+            .text-wr {
+                margin-bottom: 40px;
+                h1 {
+                    text-align: center;
+                    font-size: 28px;
+                    line-height: 34px;
+                    margin-bottom: 15px;
+                }
+                p {
+                    text-align: center;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #7A7A7A;
+                }
+            }
+            .buttons-wr {
+                display: flex;
+                justify-content: space-between;
+               
+
+                .back {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: #3CB3AB;
+                    border-radius: 33.5px;
+                    width: 204px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: whitesmoke;
+
+                }
+                .back:hover {
+                    background-color:#147A73;
+                    cursor: pointer;
+                }
+                .bookmark {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+
+                    img:hover {
+                        cursor: pointer;
+                        filter: brightness(2)
+                    }
+                }
+            }
+        }
+
+        .content-wr {
+            background-color: white;
+            border: 1px solid rgb(218, 218, 218);
+            border-radius: 8px;
+            padding: 48px;
+
+            article {
+                margin-bottom: 40px;
+
+                h3 {
+                    font-size: 20px;
+                    line-height: 24px;
+                    margin-bottom: 35px;
+                }
+                p {
+                    font-size: 16px;
+                    line-height: 30px;
+                    color: #7A7A7A;
+                    margin-bottom: 3em;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,24 @@
+
+.Header {
+    height: 400px;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 168px 62px 168px;
+
+        ul {
+            
+            li {
+                list-style: none;
+                display: inline;
+                margin-left: 32px;
+                color: whitesmoke;
+                cursor: pointer;
+
+            }
+        }
+    }
+
+
+}
