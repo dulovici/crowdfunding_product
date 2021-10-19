@@ -1,0 +1,155 @@
+
+
+.no-reward {
+
+
+    .title-wr {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 17px;
+
+        .title {
+            display: flex;
+            gap: 20px;
+            .radio {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #dadada;
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                cursor: pointer;
+    
+                .isActive {
+                    height: 12px;
+                    width: 12px;
+                    border-radius: 50%;
+                    background-color: #3CB3AB;
+                    display: none;
+                }
+            }
+
+            h4 {
+                font-size: 16px;
+            }
+            p {
+                font-size: 16px;
+                color: #3CB3AB;
+                display: none;
+            }
+        }
+        .left {
+            display: flex;
+            gap: 7px;
+            
+            h3 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 14px;
+                color: #7A7A7A;
+            }
+        }
+    }
+
+    .card-text {
+        font-size: 15px;
+        line-height: 28px;
+        color: #7A7A7A;
+        margin-bottom: 32px;
+    }
+
+    .line {
+        border-top: 1px solid #dadada;
+        margin-bottom: 24px;
+        display: none;
+    }
+
+    .form-wr {
+        display: flex;
+        justify-content: space-between;
+        display: none;
+        
+        p {
+            font-size: 15px;
+            color: #7A7A7A;
+        }
+
+        .form {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            .input{
+                display: flex;
+                width: 100px;
+                border: 1px solid rgb(218, 218, 218);
+                padding: .7em;
+                border-radius: 33.5px;
+
+                input {
+                    margin-left: 5px;
+                    width: 90%;
+                    border: none;
+                    outline: none;
+                    font-weight: 700;
+                    font-size: 14px;
+                }
+            }
+
+            .cont {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #3CB3AB;
+                border-radius: 33.5px;
+                width: 107px;
+                font-size: 14px;
+                color: whitesmoke;
+                padding: .7em;
+            }
+            .cont:hover {
+                background-color:#147A73;
+                cursor: pointer;
+            }
+        }
+
+    }
+    
+}
+
+
+
+.active {
+    border: 1px solid #3CB3AB;
+
+    .title-wr {
+
+        .title{
+
+            .radio {
+    
+                .isActive{
+                    display: block;
+                }
+            }
+
+            p {
+                display: block;
+            }
+        }
+    }
+
+    .line {
+        display: block;
+    }
+    
+    .form-wr {
+        display: flex;
+    }
+
+}
+
+.out {
+    opacity: .5;
+}

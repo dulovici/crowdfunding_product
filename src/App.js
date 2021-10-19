@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.scss";
 import data from "./Data/data";
 import Modal from 'react-modal';
-import { MAIN_MODAL_STYLE } from "./Modal_Style/modal_style";
+import { MAIN_MODAL_STYLE, TNX_MODAL_STYLE } from "./Modal_Style/modal_style";
 import mastercraftLogo from "./images/logo-mastercraft.svg";
 import bookmarkLogo from "./images/icon-bookmark.svg";
 
@@ -10,19 +10,24 @@ import Header from "./Components/Header/Header";
 import Numbers from "./Components/Numbers/Numbers";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import MainModal from "./Components/MainModal/MainModal";
+import TnxModal from './Components/TnxModal/TnxModal';
 
 
 Modal.setAppElement('#root')
 
 function App() {
+  const [productData, setProductData] = useState(data);
+  const [backedAmount, setBackedAmount] = useState(20914);
+  const [totalBackers, setTotalBackers] = useState(258);
   const [activeCard, setActiveCard] = useState(null);
   const [mainModalIsUp, setMainModalIsUp] = useState(false);
-
+  const [tnxModalIsUp, setTnxModalIsUp] = useState(false);
 
 
   return (
     <div className="App">
       <Header />
+
       <main>
         <div className="bookmark-wr">
           <div className="img-wr">
@@ -44,7 +49,10 @@ function App() {
           </div>
         </div>
 
-        <Numbers />
+        <Numbers
+        backedAmount={backedAmount}
+        totalBackers={totalBackers}
+        />
 
         <div className="content-wr">
           <article>
@@ -63,20 +71,32 @@ function App() {
             </p>
           </article>
 
-          {data.map((el) => {
+          {productData.map((el) => {
             return <ProductCard 
             key={el.id} 
             data={el} 
             setActiveCard={setActiveCard}
             setMainModalIsUp={setMainModalIsUp}
+            
             />;
           })}
 
           <Modal isOpen={mainModalIsUp} style={MAIN_MODAL_STYLE}>
             <MainModal 
             setMainModalIsUp={setMainModalIsUp}
+            productData={productData}
             activeCard={activeCard}
+            backedAmount={backedAmount}
+            setBackedAmount={setBackedAmount}
+            totalBackers={totalBackers}
+            setTotalBackers={setTotalBackers}
+            setTnxModalIsUp={setTnxModalIsUp}
+
             />
+          </Modal>
+
+          <Modal isOpen={tnxModalIsUp} style={TNX_MODAL_STYLE}>
+            <TnxModal setTnxModalIsUp={setTnxModalIsUp} />
           </Modal>
 
 

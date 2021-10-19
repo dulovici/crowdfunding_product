@@ -22,8 +22,8 @@ export const TNX_MODAL_STYLE = {
     },
     content: {
         position: 'absolute',
-        height: '50%',
-        width: '50%',
+        height: '409px',
+        width: '540px',
         left: '50%',
         top: '50%',
         transform: 'translate(-50%, -50%)',

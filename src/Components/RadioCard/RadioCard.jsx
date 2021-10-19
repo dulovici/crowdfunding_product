@@ -1,44 +1,78 @@
+import React, { useState } from "react";
+import "./radioCard.scss";
 
-import React from 'react';
-import './radioCard.scss';
+function RadioCard(props) {
+  const {
+    data,
+    active,
+    setActive,
+    backedAmount,
+    setBackedAmount,
+    setMainModalIsUp,
+    totalBackers,
+    setTotalBackers,
+    setTnxModalIsUp
+  } = props;
 
+  const [plagedAmount, setPlagedAmount] = useState("");
 
-function RadioCard() {
-    return (
-        <div className='Radio-Card active'>
-            <div className="title-wr">
-                <div className="title">
-                    <div className="radio">
-                        <div className="isActive"></div>
-                    </div>
-                    <h4>Pledge with no reward</h4>
+  const plage = () => {
+    setBackedAmount(backedAmount + plagedAmount);
+  };
 
-                    <p>Pledge $25 or more</p>
-                </div>
+  return (
+    <div
+      className={`Radio-Card ${
+        data.id === active && data.inStock ? "active" : ""
+      }  ${!data.inStock ? "out" : ""}`}
+    >
+      <div className="title-wr">
+        <div className="title">
+          <div onClick={() => setActive(data.id)} className="radio">
+            <div className="isActive"></div>
+          </div>
+          <h4>{data.name}</h4>
 
-                <div className="left">
-                    <h3>{`101`}</h3>
-                    <p>left</p>
-                </div>
-            </div>
-
-            <p className='card-text'>Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
-
-            <div className="line"></div>
-
-            <div className="form-wr">
-                <p>Enter Your plage</p>
-                <div className="form">
-                    <div className="input">
-                        <p>$</p>
-                        <input type="text" />
-                    </div>
-                    <div className="cont">Continiune</div>
-                </div>
-            </div>
-            
+          <p>{`Pledge $${data.minPlage} or more`}</p>
         </div>
-    )
+
+        <div className="left">
+          <h3>{`${data.peopleLeft}`}</h3>
+          <p>left</p>
+        </div>
+      </div>
+
+      <p className="card-text">{data.text}</p>
+
+      {data.inStock ? (
+        <div className="form-wr">
+          <p>Enter Your plage</p>
+          <div className="form">
+            <div className="input">
+              <p>$</p>
+              <input
+                type="number"
+                onChange={(e) => setPlagedAmount(+e.target.value)}
+              />
+            </div>
+            <div
+              className="cont"
+              onClick={() => {
+                if (plagedAmount >= data.minPlage) {
+                  plage();
+                  setTotalBackers(totalBackers + 1);
+                  setMainModalIsUp(false);
+                  setTnxModalIsUp(true);
+                }
+              }}
+            >
+              Continiune
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
 }
 
-export default RadioCard
+export default RadioCard;
