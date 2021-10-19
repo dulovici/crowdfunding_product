@@ -45,6 +45,8 @@ function RadioCard(props) {
       <p className="card-text">{data.text}</p>
 
       {data.inStock ? (
+        <>
+        <div className="line"></div>
         <div className="form-wr">
           <p>Enter Your plage</p>
           <div className="form">
@@ -70,6 +72,7 @@ function RadioCard(props) {
             </div>
           </div>
         </div>
+        </>
       ) : null}
     </div>
   );
