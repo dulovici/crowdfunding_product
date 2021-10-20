@@ -38,3 +38,21 @@
         background-color:#147A73;
     }
 }
+
+
+@media(max-width: 560px) {
+    .tnx-modal {
+
+        h1 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        .got-it {
+            
+        }
+    }
+}

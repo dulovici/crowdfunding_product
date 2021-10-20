@@ -113,3 +113,58 @@
     }
 
 }
+
+
+@media(max-width: 760px) {
+
+    main {
+        padding: 0 24px;
+    }
+}
+
+
+@media(max-width: 560px) {
+
+    .App {
+        max-width: 375px; 
+
+        main {
+            .bookmark-wr{
+                .text-wr{
+                    h1{
+                        font-size: 20px;
+                        line-height: 24px;
+                    }
+                    p {
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+                }
+                .buttons-wr {
+                    gap: 15px;
+                    p {
+                        display: none;
+                    }
+                }
+            }
+
+
+            .content-wr {
+                padding: 30px;
+                
+                article {
+                    h3 {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
+                    p {
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+
+    }
+   
+}

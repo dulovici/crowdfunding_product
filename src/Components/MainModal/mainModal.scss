@@ -34,6 +34,15 @@
         }
     }
 
+}
 
-    
+@media(max-width: 560px) {
+    .Main-modal {
+        .modal-head{
+            .title {
+                h3{font-size: 18px;}
+            }
+            p{font-size: 14px;}
+        }
+    }
 }

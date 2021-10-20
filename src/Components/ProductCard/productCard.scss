@@ -65,3 +65,26 @@
     }
 
 }
+
+
+
+@media(max-width: 560px) {
+
+    .Product-Card {
+        .card-head {
+            flex-direction: column;
+            h3 {font-size: 14px;}
+            p {font-size: 14px;}
+        }
+        p {font-size: 14px;}
+        .card-bot {
+            flex-direction: column;
+
+            .select-r {
+                width: 150px;
+                height: 48px;
+            }
+        }
+    }
+   
+}

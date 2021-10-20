@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./App.scss";
 import data from "./Data/data";
 import Modal from 'react-modal';
-import { MAIN_MODAL_STYLE, TNX_MODAL_STYLE } from "./Modal_Style/modal_style";
+import { MAIN_MODAL_STYLE, TNX_MODAL_STYLE,MAIN_MOBILE_STYLE, TNX_MOBILE_STYLE } from "./Modal_Style/modal_style";
 import mastercraftLogo from "./images/logo-mastercraft.svg";
 import bookmarkLogo from "./images/icon-bookmark.svg";
+import { useViewport } from "./Hooks/useViewport";
 
 import Header from "./Components/Header/Header";
 import Numbers from "./Components/Numbers/Numbers";
@@ -22,6 +23,10 @@ function App() {
   const [activeCard, setActiveCard] = useState(null);
   const [mainModalIsUp, setMainModalIsUp] = useState(false);
   const [tnxModalIsUp, setTnxModalIsUp] = useState(false);
+  const [bookmark, setBookmark] = useState(false)
+
+  const {width} = useViewport();
+  const brakepoint = 760;
 
 
   return (
@@ -43,8 +48,8 @@ function App() {
           <div className="buttons-wr">
             <div className="back">Back this project</div>
             <div className="bookmark">
-              <img src={bookmarkLogo} alt="bookmark" />
-              <p>Bookmark</p>
+              <img onClick={()=> setBookmark(!bookmark)} src={bookmarkLogo} alt="bookmark" />
+              <p style={bookmark?{color: "#3CB3AB", fontWeight: '700'}:null}>Bookmark</p>
             </div>
           </div>
         </div>
@@ -81,7 +86,7 @@ function App() {
             />;
           })}
 
-          <Modal isOpen={mainModalIsUp} style={MAIN_MODAL_STYLE}>
+          <Modal isOpen={mainModalIsUp} style={width>brakepoint?MAIN_MODAL_STYLE:MAIN_MOBILE_STYLE}>
             <MainModal 
             setMainModalIsUp={setMainModalIsUp}
             productData={productData}
@@ -95,7 +100,7 @@ function App() {
             />
           </Modal>
 
-          <Modal isOpen={tnxModalIsUp} style={TNX_MODAL_STYLE}>
+          <Modal isOpen={tnxModalIsUp} style={width>brakepoint?TNX_MODAL_STYLE:TNX_MOBILE_STYLE}>
             <TnxModal setTnxModalIsUp={setTnxModalIsUp} />
           </Modal>
 

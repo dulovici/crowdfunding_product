@@ -18,7 +18,32 @@
 
             }
         }
+
+        img {
+            cursor: pointer;
+        }
     }
 
 
+}
+
+@media(max-width: 760px) {
+
+    .Header {
+
+        .content {
+            padding: 50px 100px 62px 100px;
+        }        
+    }
+}
+
+@media(max-width: 560px) {
+
+    .Header {
+
+        .content {
+            padding: 50px 20px 62px 20px;
+        }        
+    }
+   
 }
