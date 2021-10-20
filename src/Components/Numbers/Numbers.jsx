@@ -25,7 +25,7 @@ function Numbers(props) {
                 </div>
             </div>
             <div className="progres-bar">
-                <div className="progres-line" style={{width: `${progres}%`}}></div>
+                <div className="progres-line" style={{maxWidth: '100%',width: `${progres}%`}}></div>
             </div>
         </div>
     )
