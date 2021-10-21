@@ -11,7 +11,7 @@ function RadioCard(props) {
     setMainModalIsUp,
     totalBackers,
     setTotalBackers,
-    setTnxModalIsUp
+    setTnxModalIsUp,
   } = props;
 
   const [plagedAmount, setPlagedAmount] = useState("");
@@ -46,32 +46,32 @@ function RadioCard(props) {
 
       {data.inStock ? (
         <>
-        <div className="line"></div>
-        <div className="form-wr">
-          <p>Enter Your plage</p>
-          <div className="form">
-            <div className="input">
-              <p>$</p>
-              <input
-                type="number"
-                onChange={(e) => setPlagedAmount(+e.target.value)}
-              />
-            </div>
-            <div
-              className="cont"
-              onClick={() => {
-                if (plagedAmount >= data.minPlage) {
-                  plage();
-                  setTotalBackers(totalBackers + 1);
-                  setMainModalIsUp(false);
-                  setTnxModalIsUp(true);
-                }
-              }}
-            >
-              Continiune
+          <div className="line"></div>
+          <div className="form-wr">
+            <p>Enter Your plage</p>
+            <div className="form">
+              <div className="input">
+                <p>$</p>
+                <input
+                  type="number"
+                  onChange={(e) => setPlagedAmount(+e.target.value)}
+                />
+              </div>
+              <div
+                className="cont"
+                onClick={() => {
+                  if (plagedAmount >= data.minPlage) {
+                    plage();
+                    setTotalBackers(totalBackers + 1);
+                    setMainModalIsUp(false);
+                    setTnxModalIsUp(true);
+                  }
+                }}
+              >
+                Continiune
+              </div>
             </div>
           </div>
-        </div>
         </>
       ) : null}
     </div>

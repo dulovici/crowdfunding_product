@@ -10,7 +10,7 @@ function NoRewardCard(props) {
     setMainModalIsUp,
     totalBackers,
     setTotalBackers,
-    setTnxModalIsUp
+    setTnxModalIsUp,
   } = props;
 
   const [plagedAmount, setPlagedAmount] = useState("");
@@ -57,7 +57,7 @@ function NoRewardCard(props) {
                 plage();
                 setTotalBackers(totalBackers + 1);
                 setMainModalIsUp(false);
-                setTnxModalIsUp(true)
+                setTnxModalIsUp(true);
               }}
             >
               Continiune

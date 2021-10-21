@@ -12,7 +12,7 @@ function MainModal(props) {
     setBackedAmount,
     totalBackers,
     setTotalBackers,
-    setTnxModalIsUp
+    setTnxModalIsUp,
   } = props;
 
   const [active, setActive] = useState(activeCard.id);

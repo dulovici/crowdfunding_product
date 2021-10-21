@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./App.scss";
 import data from "./Data/data";
 import Modal from "react-modal";
+import mastercraftLogo from "./images/logo-mastercraft.svg";
+import { useViewport } from "./Hooks/useViewport";
 import {
   MAIN_MODAL_STYLE,
   TNX_MODAL_STYLE,
   MAIN_MOBILE_STYLE,
   TNX_MOBILE_STYLE,
 } from "./Modal_Style/modal_style";
-import mastercraftLogo from "./images/logo-mastercraft.svg";
-import { useViewport } from "./Hooks/useViewport";
 
 import Header from "./Components/Header/Header";
 import Numbers from "./Components/Numbers/Numbers";
@@ -55,11 +55,19 @@ function App() {
                 width="56"
                 height="56"
                 xmlns="http://www.w3.org/2000/svg"
-                onClick={()=> setBookmark(!bookmark)}
+                onClick={() => setBookmark(!bookmark)}
               >
                 <g fill="none" fill-rule="evenodd">
-                  <circle fill={bookmark ? '#3CB3AB' :'#2F2F2F'} cx="28" cy="28" r="28" />
-                  <path fill={bookmark ? '#f5f5f5' :"#B1B1B1"} d="M23 19v18l5-5.058L33 37V19z" />
+                  <circle
+                    fill={bookmark ? "#147A73" : "#2F2F2F"}
+                    cx="28"
+                    cy="28"
+                    r="28"
+                  />
+                  <path
+                    fill={bookmark ? "#f5f5f5" : "#B1B1B1"}
+                    d="M23 19v18l5-5.058L33 37V19z"
+                  />
                 </g>
               </svg>
 

@@ -16,10 +16,13 @@ function TnxModal(props) {
         completed.
       </p>
 
-      <div onClick={() =>{
-           setTnxModalIsUp(false)
-           window.scrollTo(0, 0)
-      }} className="got-it">
+      <div
+        onClick={() => {
+          setTnxModalIsUp(false);
+          window.scrollTo(0, 0);
+        }}
+        className="got-it"
+      >
         Got it
       </div>
     </div>
