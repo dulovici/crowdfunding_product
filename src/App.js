@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 import "./App.scss";
 import data from "./Data/data";
-import Modal from 'react-modal';
-import { MAIN_MODAL_STYLE, TNX_MODAL_STYLE,MAIN_MOBILE_STYLE, TNX_MOBILE_STYLE } from "./Modal_Style/modal_style";
+import Modal from "react-modal";
+import {
+  MAIN_MODAL_STYLE,
+  TNX_MODAL_STYLE,
+  MAIN_MOBILE_STYLE,
+  TNX_MOBILE_STYLE,
+} from "./Modal_Style/modal_style";
 import mastercraftLogo from "./images/logo-mastercraft.svg";
-import bookmarkLogo from "./images/icon-bookmark.svg";
 import { useViewport } from "./Hooks/useViewport";
 
 import Header from "./Components/Header/Header";
 import Numbers from "./Components/Numbers/Numbers";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import MainModal from "./Components/MainModal/MainModal";
-import TnxModal from './Components/TnxModal/TnxModal';
+import TnxModal from "./Components/TnxModal/TnxModal";
 
-
-Modal.setAppElement('#root')
+Modal.setAppElement("#root");
 
 function App() {
-  const [productData, setProductData] = useState(data);
+  const [productData] = useState(data);
   const [backedAmount, setBackedAmount] = useState(20914);
   const [totalBackers, setTotalBackers] = useState(258);
   const [activeCard, setActiveCard] = useState(null);
   const [mainModalIsUp, setMainModalIsUp] = useState(false);
   const [tnxModalIsUp, setTnxModalIsUp] = useState(false);
-  const [bookmark, setBookmark] = useState(false)
+  const [bookmark, setBookmark] = useState(false);
 
-  const {width} = useViewport();
+  const { width } = useViewport();
   const brakepoint = 760;
-
 
   return (
     <div className="App">
@@ -48,16 +50,31 @@ function App() {
           <div className="buttons-wr">
             <div className="back">Back this project</div>
             <div className="bookmark">
-              <img onClick={()=> setBookmark(!bookmark)} src={bookmarkLogo} alt="bookmark" />
-              <p style={bookmark?{color: "#3CB3AB", fontWeight: '700'}:null}>Bookmark</p>
+              <svg
+                className="svg-img"
+                width="56"
+                height="56"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={()=> setBookmark(!bookmark)}
+              >
+                <g fill="none" fill-rule="evenodd">
+                  <circle fill={bookmark ? '#3CB3AB' :'#2F2F2F'} cx="28" cy="28" r="28" />
+                  <path fill={bookmark ? '#f5f5f5' :"#B1B1B1"} d="M23 19v18l5-5.058L33 37V19z" />
+                </g>
+              </svg>
+
+              <p
+                style={
+                  bookmark ? { color: "#3CB3AB", fontWeight: "700" } : null
+                }
+              >
+                Bookmark
+              </p>
             </div>
           </div>
         </div>
 
-        <Numbers
-        backedAmount={backedAmount}
-        totalBackers={totalBackers}
-        />
+        <Numbers backedAmount={backedAmount} totalBackers={totalBackers} />
 
         <div className="content-wr">
           <article>
@@ -77,34 +94,38 @@ function App() {
           </article>
 
           {productData.map((el) => {
-            return <ProductCard 
-            key={el.id} 
-            data={el} 
-            setActiveCard={setActiveCard}
-            setMainModalIsUp={setMainModalIsUp}
-            
-            />;
+            return (
+              <ProductCard
+                key={el.id}
+                data={el}
+                setActiveCard={setActiveCard}
+                setMainModalIsUp={setMainModalIsUp}
+              />
+            );
           })}
 
-          <Modal isOpen={mainModalIsUp} style={width>brakepoint?MAIN_MODAL_STYLE:MAIN_MOBILE_STYLE}>
-            <MainModal 
-            setMainModalIsUp={setMainModalIsUp}
-            productData={productData}
-            activeCard={activeCard}
-            backedAmount={backedAmount}
-            setBackedAmount={setBackedAmount}
-            totalBackers={totalBackers}
-            setTotalBackers={setTotalBackers}
-            setTnxModalIsUp={setTnxModalIsUp}
-
+          <Modal
+            isOpen={mainModalIsUp}
+            style={width > brakepoint ? MAIN_MODAL_STYLE : MAIN_MOBILE_STYLE}
+          >
+            <MainModal
+              setMainModalIsUp={setMainModalIsUp}
+              productData={productData}
+              activeCard={activeCard}
+              backedAmount={backedAmount}
+              setBackedAmount={setBackedAmount}
+              totalBackers={totalBackers}
+              setTotalBackers={setTotalBackers}
+              setTnxModalIsUp={setTnxModalIsUp}
             />
           </Modal>
 
-          <Modal isOpen={tnxModalIsUp} style={width>brakepoint?TNX_MODAL_STYLE:TNX_MOBILE_STYLE}>
+          <Modal
+            isOpen={tnxModalIsUp}
+            style={width > brakepoint ? TNX_MODAL_STYLE : TNX_MOBILE_STYLE}
+          >
             <TnxModal setTnxModalIsUp={setTnxModalIsUp} />
           </Modal>
-
-
         </div>
       </main>
     </div>

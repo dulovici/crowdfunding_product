@@ -80,9 +80,9 @@
                     align-items: center;
                     gap: 16px;
 
-                    img:hover {
+
+                    svg {
                         cursor: pointer;
-                        filter: brightness(2)
                     }
                 }
             }
