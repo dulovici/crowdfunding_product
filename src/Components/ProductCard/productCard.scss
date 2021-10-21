@@ -66,6 +66,19 @@
 
 }
 
+.out {
+    .card-bot {
+        .select-r {
+            background-color: #808080;
+        }
+
+        .select-r:hover {
+            background-color:#808080;
+            cursor: default;
+        }
+    }
+}
+
 
 
 @media(max-width: 560px) {

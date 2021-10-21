@@ -5,7 +5,7 @@ function ProductCard(props) {
   const { data, setActiveCard, setMainModalIsUp } = props;
 
   return (
-    <div className="Product-Card">
+    <div className={`Product-Card ${!data.inStock? 'out' : '' }`}>
       <div className="card-head">
         <h3>{data.name}</h3>
         <p>{`Pledge $${data.minPlage} or more`}</p>
@@ -18,12 +18,13 @@ function ProductCard(props) {
         </div>
         <div
           className="select-r"
-          onClick={() => {
+          onClick={
+            data.inStock ?() => {
             setActiveCard(data);
             setMainModalIsUp(true);
-          }}
+          } : null}
         >
-          Select reward
+          {data.inStock ? 'Select reward' : 'Out of stock'}
         </div>
       </div>
     </div>
