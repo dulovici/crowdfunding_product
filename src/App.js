@@ -23,7 +23,7 @@ function App() {
   const [productData] = useState(data);
   const [backedAmount, setBackedAmount] = useState(20914);
   const [totalBackers, setTotalBackers] = useState(258);
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState({});
   const [mainModalIsUp, setMainModalIsUp] = useState(false);
   const [tnxModalIsUp, setTnxModalIsUp] = useState(false);
   const [bookmark, setBookmark] = useState(false);
@@ -48,7 +48,7 @@ function App() {
             </p>
           </div>
           <div className="buttons-wr">
-            <div className="back">Back this project</div>
+            <div onClick={()=>setMainModalIsUp(true)} className="back">Back this project</div>
             <div className="bookmark">
               <svg
                 className="svg-img"
