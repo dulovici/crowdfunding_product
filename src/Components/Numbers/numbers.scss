@@ -1,0 +1,78 @@
+
+
+.Numbers {
+    padding: 66px 48px 48px 48px;
+    background-color: white;
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 8px;
+    margin-bottom: 24px;
+
+    .numbers-wr {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30PX;
+
+        .num-c {
+            width: 200px;
+
+            h2 {
+                margin-bottom: 8px;
+                font-size: 32px;
+                line-height: 39px;
+            }
+            p {
+                font-size: 15px;
+                line-height: 18px;
+                color: #7A7A7A;
+            }
+        }
+        .dollars {border-right: 1px solid #b8b7b7;}            
+        .backers {
+            border-right: 1px solid #b8b7b7;
+            padding-left: 20px;
+        }
+        .days {padding-left: 20px;}
+
+    }
+
+    .progres-bar {
+        border-radius: 33.5px;
+        background-color: rgb(235, 235, 235);
+
+        .progres-line {
+            height: 12px;
+            background: #3CB3AB;
+            border-radius: 33.5px;  
+        }
+    }
+}
+
+
+@media(max-width: 560px) {
+    .Numbers {
+        .numbers-wr{
+            flex-direction: column;
+            align-items: center;
+
+            .num-c {
+                text-align: center;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #b8b7b7 !important;
+            }
+            .dollars{
+                border: none;
+                // border-bottom: 1px solod black;
+            }
+            .backers {
+                border: none;
+            }
+            .days {
+                border: none;
+            }
+        }
+
+        
+    }
+   
+}

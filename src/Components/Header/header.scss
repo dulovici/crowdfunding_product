@@ -1,0 +1,49 @@
+
+.Header {
+    height: 400px;
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        padding: 50px 168px 62px 168px;
+
+        ul {
+            
+            li {
+                list-style: none;
+                display: inline;
+                margin-left: 32px;
+                color: whitesmoke;
+                cursor: pointer;
+
+            }
+        }
+
+        img {
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+@media(max-width: 760px) {
+
+    .Header {
+
+        .content {
+            padding: 50px 100px 62px 100px;
+        }        
+    }
+}
+
+@media(max-width: 560px) {
+
+    .Header {
+
+        .content {
+            padding: 50px 20px 62px 20px;
+        }        
+    }
+   
+}
